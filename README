@@ -1,2 +1,15 @@
 A BrowserPlus service that creates a xml config file for the Flash Media Encoder and saves it to the users local disk.
 The service sets the name of the stream and the URL to the streamer and then opens FME with a script and starts the stream.
+
+To install the service you go into the idegastreamer directory and issue this command.
+
+OSX/Linux
+../bpsdk/bin/ServiceInstaller -v -f .
+
+Windows (I think...haven't tried it)
+..\bpsdk\bin\ServiceInstaller.exe -v -f .
+
+Then you can test the service with the browserPlus.html file.
+It uses JWPlayer. Streaming flash seems to not work from localhost so I usually test by uploading the html and needed swf, js stuff to my streaming server (red5)
+
+-Sputnick
