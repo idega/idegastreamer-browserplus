@@ -1,0 +1,130 @@
+.TH "bptypes.h" 3 "12 Nov 2009" "Doxygen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+bptypes.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBBPList\fP"
+.br
+.ti -1c
+.RI "struct \fBBPMap\fP"
+.br
+.ti -1c
+.RI "struct \fBBPElement_t\fP"
+.br
+.ti -1c
+.RI "struct \fBBPMapElem_t\fP"
+.br
+.in -1c
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBBP_TRUE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBBP_FALSE\fP   0"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef int \fBBPBool\fP"
+.br
+.ti -1c
+.RI "typedef char * \fBBPString\fP"
+.br
+.ti -1c
+.RI "typedef long long int \fBBPInteger\fP"
+.br
+.ti -1c
+.RI "typedef double \fBBPDouble\fP"
+.br
+.ti -1c
+.RI "typedef \fBBPInteger\fP \fBBPCallBack\fP"
+.br
+.ti -1c
+.RI "typedef char * \fBBPPath\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBBPElement_t\fP \fBBPElement\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBBPMapElem_t\fP \fBBPMapElem\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBBPType\fP { \fBBPTNull\fP, \fBBPTBoolean\fP, \fBBPTInteger\fP, \fBBPTDouble\fP, \fBBPTString\fP, \fBBPTMap\fP, \fBBPTList\fP, \fBBPTCallBack\fP, \fBBPTPath\fP, \fBBPTAny\fP }"
+.br
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define BP_FALSE   0"BPBool false value 
+.SS "#define BP_TRUE   1"BPBool true value 
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef int \fBBPBool\fP"booleans are represented as integers 
+.SS "typedef \fBBPInteger\fP \fBBPCallBack\fP"the callback is an integer handle 
+.SS "typedef double \fBBPDouble\fP"floating point values are double precision 
+.SS "typedef struct \fBBPElement_t\fP  \fBBPElement\fP"The uber structure capable of representing any element 
+.SS "typedef long long int \fBBPInteger\fP"integers are 64 bit signed entities 
+.SS "typedef struct \fBBPMapElem_t\fP  \fBBPMapElem\fP"A BPMapElem contains a pointer to a UTF8 string, and a pointer to a BPElement structure containing the value 
+.SS "typedef char* \fBBPPath\fP"pathnames are UTF8 
+.SS "typedef char* \fBBPString\fP"strings are UTF8 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBBPType\fP"***** BEGIN LICENSE BLOCK ***** The contents of this file are subject to the Mozilla Public License Version 1.1 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.mozilla.org/MPL/
+.PP
+Software distributed under the License is distributed on an 'AS IS' basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License for the specific language governing rights and limitations under the License.
+.PP
+The Original Code is BrowserPlus (tm).
+.PP
+The Initial Developer of the Original Code is Yahoo!. Portions created by Yahoo! are Copyright (C) 2006-2009 Yahoo!. All Rights Reserved.
+.PP
+Contributor(s): ***** END LICENSE BLOCK ***** The available types that may be passed across the BrowserPlus <-> Service boundary. 
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fIBPTNull \fP\fP
+Null type 
+.TP
+\fB\fIBPTBoolean \fP\fP
+Boolean type 
+.TP
+\fB\fIBPTInteger \fP\fP
+integer type 
+.TP
+\fB\fIBPTDouble \fP\fP
+floating point type 
+.TP
+\fB\fIBPTString \fP\fP
+string type, all strings are represented in UTF8 
+.TP
+\fB\fIBPTMap \fP\fP
+map (hash) type. 
+.TP
+\fB\fIBPTList \fP\fP
+list (array) type. 
+.TP
+\fB\fIBPTCallBack \fP\fP
+callback type. 
+.TP
+\fB\fIBPTPath \fP\fP
+pathname type - represented as a string however paths are sensitive and are handled differently than strings 
+.TP
+\fB\fIBPTAny \fP\fP
+When specified in an argument description, denotes that any data type is allowable. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen from the source code.

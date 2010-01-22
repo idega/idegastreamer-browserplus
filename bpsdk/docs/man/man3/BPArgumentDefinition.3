@@ -1,0 +1,49 @@
+.TH "BPArgumentDefinition" 3 "12 Nov 2009" "Doxygen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BPArgumentDefinition \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <bpdefinition.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBBPString\fP \fBname\fP"
+.br
+.ti -1c
+.RI "\fBBPString\fP \fBdocString\fP"
+.br
+.ti -1c
+.RI "\fBBPType\fP \fBtype\fP"
+.br
+.ti -1c
+.RI "\fBBPBool\fP \fBrequired\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+***** BEGIN LICENSE BLOCK ***** The contents of this file are subject to the Mozilla Public License Version 1.1 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.mozilla.org/MPL/
+.PP
+Software distributed under the License is distributed on an 'AS IS' basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License for the specific language governing rights and limitations under the License.
+.PP
+The Original Code is BrowserPlus (tm).
+.PP
+The Initial Developer of the Original Code is Yahoo!. Portions created by Yahoo! are Copyright (C) 2006-2009 Yahoo!. All Rights Reserved.
+.PP
+Contributor(s): ***** END LICENSE BLOCK ***** Written by Lloyd Hilaiel, on or around Fri May 18 17:06:54 MDT 2007
+.PP
+A service is defined by a set if in-memory structures. These structures are hierarchical and can define a service containing any number of functions, which themselves accept any number of arguments. The definition of an argument 
+.SH "Field Documentation"
+.PP 
+.SS "\fBBPString\fP \fBBPArgumentDefinition::docString\fP"A human readable english documentation string 
+.SS "\fBBPString\fP \fBBPArgumentDefinition::name\fP"The name of the agument, all arguments in BrowserPlus are named 
+.SS "\fBBPBool\fP \fBBPArgumentDefinition::required\fP"whether the argument is required or not 
+.SS "\fBBPType\fP \fBBPArgumentDefinition::type\fP"The expected type of the argument 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen from the source code.

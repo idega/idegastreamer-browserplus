@@ -1,0 +1,66 @@
+.TH "BPElement_t" 3 "12 Nov 2009" "Doxygen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BPElement_t \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <bptypes.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBBPType\fP \fBtype\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fBBPBool\fP \fBbooleanVal\fP"
+.br
+.ti -1c
+.RI "   \fBBPString\fP \fBstringVal\fP"
+.br
+.ti -1c
+.RI "   \fBBPInteger\fP \fBintegerVal\fP"
+.br
+.ti -1c
+.RI "   \fBBPDouble\fP \fBdoubleVal\fP"
+.br
+.ti -1c
+.RI "   \fBBPMap\fP \fBmapVal\fP"
+.br
+.ti -1c
+.RI "   \fBBPList\fP \fBlistVal\fP"
+.br
+.ti -1c
+.RI "   \fBBPCallBack\fP \fBcallbackVal\fP"
+.br
+.ti -1c
+.RI "   \fBBPPath\fP \fBpathVal\fP"
+.br
+.ti -1c
+.RI "} \fBvalue\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The uber structure capable of representing any element 
+.SH "Field Documentation"
+.PP 
+.SS "\fBBPBool\fP \fBBPElement_t::booleanVal\fP"
+.SS "\fBBPCallBack\fP \fBBPElement_t::callbackVal\fP"
+.SS "\fBBPDouble\fP \fBBPElement_t::doubleVal\fP"
+.SS "\fBBPInteger\fP \fBBPElement_t::integerVal\fP"
+.SS "\fBBPList\fP \fBBPElement_t::listVal\fP"
+.SS "\fBBPMap\fP \fBBPElement_t::mapVal\fP"
+.SS "\fBBPPath\fP \fBBPElement_t::pathVal\fP"
+.SS "\fBBPString\fP \fBBPElement_t::stringVal\fP"
+.SS "\fBBPType\fP \fBBPElement_t::type\fP"The type of element that this structure contains. This type determine which union value is valid 
+.SS "union { ... }   \fBBPElement_t::value\fP"The value of the element 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen from the source code.

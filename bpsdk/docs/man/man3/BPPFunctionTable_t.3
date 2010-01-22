@@ -1,0 +1,52 @@
+.TH "BPPFunctionTable_t" 3 "12 Nov 2009" "Doxygen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BPPFunctionTable_t \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <bppfunctions.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "unsigned int \fBcoreletAPIVersion\fP"
+.br
+.ti -1c
+.RI "\fBBPPInitializePtr\fP \fBinitializeFunc\fP"
+.br
+.ti -1c
+.RI "\fBBPPShutdownPtr\fP \fBshutdownFunc\fP"
+.br
+.ti -1c
+.RI "\fBBPPAllocatePtr\fP \fBallocateFunc\fP"
+.br
+.ti -1c
+.RI "\fBBPPDestroyPtr\fP \fBdestroyFunc\fP"
+.br
+.ti -1c
+.RI "\fBBPPInvokePtr\fP \fBinvokeFunc\fP"
+.br
+.ti -1c
+.RI "\fBBPPAttachPtr\fP \fBattachFunc\fP"
+.br
+.ti -1c
+.RI "\fBBPPDetachPtr\fP \fBdetachFunc\fP"
+.br
+.in -1c
+.SH "Field Documentation"
+.PP 
+.SS "\fBBPPAllocatePtr\fP \fBBPPFunctionTable_t::allocateFunc\fP"
+.SS "\fBBPPAttachPtr\fP \fBBPPFunctionTable_t::attachFunc\fP"
+.SS "unsigned int \fBBPPFunctionTable_t::coreletAPIVersion\fP"The version of the service API to which this service plugin is written (use the BPP_CORELET_API_VERSION macro!) 
+.SS "\fBBPPDestroyPtr\fP \fBBPPFunctionTable_t::destroyFunc\fP"
+.SS "\fBBPPDetachPtr\fP \fBBPPFunctionTable_t::detachFunc\fP"
+.SS "\fBBPPInitializePtr\fP \fBBPPFunctionTable_t::initializeFunc\fP"
+.SS "\fBBPPInvokePtr\fP \fBBPPFunctionTable_t::invokeFunc\fP"
+.SS "\fBBPPShutdownPtr\fP \fBBPPFunctionTable_t::shutdownFunc\fP"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen from the source code.

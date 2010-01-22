@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<!DOCTYPE bibliography PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+          "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
+<bibliography id="personal_identity">
+    <biblioentry id="FHIW13C-1234">
+      <author>
+        <firstname>Godfrey</firstname>
+        <surname>Vesey</surname>
+      </author>
+      <title>Personal Identity: A Philosophical Analysis</title>
+      <publisher>
+        <publishername>Cornell University Press</publishername>
+      </publisher>
+      <pubdate>1977</pubdate>
+   </biblioentry>
+   <biblioentry id="FHIW13C-125">
+      <author>
+        <firstname>Geoffrey</firstname>
+        <surname>Madell</surname>
+      </author>
+      <title>The Identity of the Self</title>
+      <publisher>
+        <publishername>Edinburgh University Press</publishername>
+      </publisher>
+      <pubdate>1981</pubdate>
+   </biblioentry>
+   <biblioentry id="FHIW13C-1260">
+      <author>
+        <firstname>Sydney</firstname>
+        <surname>Shoemaker</surname>
+      </author>
+      <author>
+         <firstname>Richard</firstname>
+         <surname>Swinburne</surname>
+      </author>
+      <title>Personal Identity</title>
+      <publisher>
+        <publishername>Basil Blackwell</publishername>
+      </publisher>
+      <pubdate>1984</pubdate>
+    </biblioentry>
+    <biblioentry id="FHIW13C-1288-3">
+      <author>
+        <firstname>Jonathan</firstname>
+        <surname>Glover</surname>
+      </author>
+      <title>The Philosophy and Psychology of Personal Identity</title>
+      <publisher>
+        <publishername>Penguin</publishername>
+      </publisher>
+      <pubdate>1988</pubdate>
+    </biblioentry>
+    <biblioentry id="FHIW13C-1289-1">
+      <author>
+        <firstname>Harold</firstname>
+        <othername>W.</othername>
+        <surname>Noonan</surname>
+      </author>
+      <title>Personal Identity</title>
+      <publisher>
+        <publishername>Routledge</publishername>
+      </publisher>
+      <pubdate>1989</pubdate>
+    </biblioentry>
+    <biblioentry id="FHIW13C-1291-2">
+      <author>
+        <firstname>RenÃ</firstname>
+        <surname>Marres</surname>
+      </author>
+      <title>Persoonlijke identiteit na het verval van de ziel</title>
+      <publisher>
+        <publishername>Coutinho</publishername>
+      </publisher>
+      <pubdate>1991</pubdate>
+    </biblioentry>
+    <biblioentry id="FHIW13C-1293-1">
+      <author>
+        <firstname>James</firstname>
+        <surname>Baillie</surname>
+      </author>
+      <title>Problems in Personal Identity</title>
+      <publisher>
+        <publishername>Paragon House</publishername>
+      </publisher>
+      <pubdate>1993</pubdate>
+    </biblioentry>
+    <biblioentry id="FHIW13C-1298-4">
+      <author>
+        <firstname>Brian</firstname>
+        <surname>Garrett</surname>
+      </author>
+      <title>Personal Identity and Self-Consciousness</title>
+      <publisher>
+        <publishername>Routledge</publishername>
+      </publisher>
+      <pubdate>1998</pubdate>
+    </biblioentry>
+    <biblioentry id="FHIW13CX-1202-1">
+      <author>
+        <firstname>John</firstname>
+        <surname>Perry</surname>
+      </author>
+      <title>Identity, Personal Identity, and the Self</title>
+      <publisher>
+        <publishername>Hackett</publishername>
+      </publisher>
+      <pubdate>2002</pubdate>
+    </biblioentry>
+</bibliography>

@@ -1,0 +1,162 @@
+.TH "bpcfunctions.h" 3 "12 Nov 2009" "Doxygen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+bpcfunctions.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <ServiceAPI/bptypes.h>\fP
+.br
+\fC#include <ServiceAPI/bpdefinition.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBBPCFunctionTable\fP"
+.br
+.in -1c
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBBP_DEBUG\fP   1"
+.br
+.ti -1c
+.RI "#define \fBBP_INFO\fP   2"
+.br
+.ti -1c
+.RI "#define \fBBP_WARN\fP   3"
+.br
+.ti -1c
+.RI "#define \fBBP_ERROR\fP   4"
+.br
+.ti -1c
+.RI "#define \fBBP_FATAL\fP   5"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBBPCPostResultsFuncPtr\fP )(unsigned int tid, const \fBBPElement\fP *results)"
+.br
+.ti -1c
+.RI "typedef void(* \fBBPCPostErrorFuncPtr\fP )(unsigned int tid, const char *error, const char *verboseError)"
+.br
+.ti -1c
+.RI "typedef void(* \fBBPCInvokeCallBackFuncPtr\fP )(unsigned int tid, \fBBPCallBack\fP callbackHandle, const \fBBPElement\fP *params)"
+.br
+.ti -1c
+.RI "typedef void(* \fBBPCLogFuncPtr\fP )(unsigned int level, const char *fmt,...)"
+.br
+.ti -1c
+.RI "typedef void(* \fBBPUserResponseCallbackFuncPtr\fP )(void *context, unsigned int promptId, const \fBBPElement\fP *response)"
+.br
+.ti -1c
+.RI "typedef unsigned int(* \fBBPCPromptUserFuncPtr\fP )(unsigned int tid, const char *utf8PathToHTMLDialog, const \fBBPElement\fP *arguments, \fBBPUserResponseCallbackFuncPtr\fP responseCallback, void *context)"
+.br
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define BP_DEBUG   1"log level argument to BPCLogFuncPtr, debug message 
+.SS "#define BP_ERROR   4"log level argument to BPCLogFuncPtr, error message 
+.SS "#define BP_FATAL   5"log level argument to BPCLogFuncPtr, fatal message 
+.SS "#define BP_INFO   2"log level argument to BPCLogFuncPtr, informational message 
+.SS "#define BP_WARN   3"log level argument to BPCLogFuncPtr, warning message 
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef void(* \fBBPCInvokeCallBackFuncPtr\fP)(unsigned int tid, \fBBPCallBack\fP callbackHandle, const \fBBPElement\fP *params)"Invoke a callback that was passed into a service function as a parameter.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItid\fP a transaction id passed into the service via the invocation of a BPPFunctionPtr 
+.br
+\fIcallbackHandle\fP A callback handle attained from the original function invocation. 
+.br
+\fIparams\fP - the argument to the callback. 
+.RE
+.PP
+
+.SS "typedef void(* \fBBPCLogFuncPtr\fP)(unsigned int level, const char *fmt,...)"Output a log a message. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlevel\fP the severity of the log message 
+.br
+\fIfmt\fP a printf() style format string 
+.br
+\fIvarags\fP arguments to the printf() style format string 
+.RE
+.PP
+
+.SS "typedef void(* \fBBPCPostErrorFuncPtr\fP)(unsigned int tid, const char *error, const char *verboseError)"Post an asynchronous error from a called BPPFunctionPtr. Subsequent to this call, no callbacks passed as parameters to the service function may be called. This indicates the completion of the function invocation or transaction.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItid\fP a transaction id passed into the corelet via the invocation of a BPPFunctionPtr 
+.br
+\fIerror\fP A string representation of an error. If NULL, a generic error will be raised. These strings should be camel cased english phrases. The service name will be prepended to the error, and it will be propogated up to the caller. 
+.br
+\fIverboseError\fP An optional english string describing more verbosely exactly what went wrong. This is intended for developers. 
+.RE
+.PP
+
+.SS "typedef void(* \fBBPCPostResultsFuncPtr\fP)(unsigned int tid, const \fBBPElement\fP *results)"***** BEGIN LICENSE BLOCK ***** The contents of this file are subject to the Mozilla Public License Version 1.1 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.mozilla.org/MPL/
+.PP
+Software distributed under the License is distributed on an 'AS IS' basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License for the specific language governing rights and limitations under the License.
+.PP
+The Original Code is BrowserPlus (tm).
+.PP
+The Initial Developer of the Original Code is Yahoo!. Portions created by Yahoo! are Copyright (C) 2006-2009 Yahoo!. All Rights Reserved.
+.PP
+Contributor(s): ***** END LICENSE BLOCK ***** Written by Lloyd Hilaiel, on or around Fri May 18 17:06:54 MDT 2007
+.PP
+BPC* functions are provided by BPCore and called by the corelet Post results from a called BPPFunctionPtr. Subsequent to this call, no callbacks passed as parameters to the service function may be called. This indicates the completion of the function invocation or transaction.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItid\fP a transaction id passed into the service via the invocation of a BPPFunctionPtr 
+.br
+\fIresults\fP The results of the function invocation. 
+.RE
+.PP
+
+.SS "typedef unsigned int(* \fBBPCPromptUserFuncPtr\fP)(unsigned int tid, const char *utf8PathToHTMLDialog, const \fBBPElement\fP *arguments, \fBBPUserResponseCallbackFuncPtr\fP responseCallback, void *context)"Prompt the end user. end user prompting must be associated with a specific transaction/method invocation.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItid\fP a transaction id passed into the service via the invocation of a BPPFunctionPtr 
+.br
+\fIutf8PathToHTMLDialog\fP A utf8 string holding the absolute path to the dialog you wish to display. 
+.br
+\fIarguments\fP The arguments to make available to the dialog via the BPDialog.args() call 
+.br
+\fIresponseCallback\fP A Function pointer to invoke when the response to the user prompt is available. 
+.br
+\fIcontext\fP a pointer to pass to the responseCallback
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A unsigned prompt ID that wil be passed to the responseCallback 
+.RE
+.PP
+
+.SS "typedef void(* \fBBPUserResponseCallbackFuncPtr\fP)(void *context, unsigned int promptId, const \fBBPElement\fP *response)"The signature of a function capable of recieving a response to a promptUser request.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontext\fP the same void * pointer passed to the BPCPromptUserFuncPtr 
+.br
+\fIpromptId\fP the same unsigned int returned from BPCPromptUserFuncPtr 
+.br
+\fIresponse\fP the user's response, a data structure mapped from javascript. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen from the source code.

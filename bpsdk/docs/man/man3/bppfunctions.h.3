@@ -1,0 +1,139 @@
+.TH "bppfunctions.h" 3 "12 Nov 2009" "Doxygen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+bppfunctions.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <ServiceAPI/bptypes.h>\fP
+.br
+\fC#include <ServiceAPI/bpdefinition.h>\fP
+.br
+\fC#include <ServiceAPI/bpcfunctions.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBBPPFunctionTable_t\fP"
+.br
+.in -1c
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBBPP_CORELET_API_VERSION\fP   4"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef const \fBBPCoreletDefinition\fP *(* \fBBPPInitializePtr\fP )(const \fBBPCFunctionTable\fP *coreFunctionTable, const \fBBPElement\fP *parameterMap)"
+.br
+.ti -1c
+.RI "typedef void(* \fBBPPShutdownPtr\fP )(void)"
+.br
+.ti -1c
+.RI "typedef int(* \fBBPPAllocatePtr\fP )(void **instance, unsigned int attachID, const \fBBPElement\fP *contextMap)"
+.br
+.ti -1c
+.RI "typedef void(* \fBBPPDestroyPtr\fP )(void *instance)"
+.br
+.ti -1c
+.RI "typedef void(* \fBBPPInvokePtr\fP )(void *instance, const char *functionName, unsigned int tid, const \fBBPElement\fP *arguments)"
+.br
+.ti -1c
+.RI "typedef const \fBBPCoreletDefinition\fP *(* \fBBPPAttachPtr\fP )(unsigned int attachID, const \fBBPElement\fP *parameterMap)"
+.br
+.ti -1c
+.RI "typedef void(* \fBBPPDetachPtr\fP )(unsigned int attachID)"
+.br
+.ti -1c
+.RI "typedef struct \fBBPPFunctionTable_t\fP \fBBPPFunctionTable\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "const \fBBPPFunctionTable\fP * \fBBPPGetEntryPoints\fP (void)"
+.br
+.in -1c
+.SH "Define Documentation"
+.PP 
+.SS "#define BPP_CORELET_API_VERSION   4"
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef int(* \fBBPPAllocatePtr\fP)(void **instance, unsigned int attachID, const \fBBPElement\fP *contextMap)"Allocate a new service instance.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinstance\fP A void pointer that will be passed back to subsequent calls into this instance. This is an output parameter that services may use to store instance specific context. 
+.br
+\fIattachID\fP The ID of the attachment this is associated with for provider services (set in BPPAttach call), for standalone services, always zero and may be ignored. 
+.br
+\fIcontextMap\fP A map containing session specific context. 'uri' is a string containing a URI of the current client. This is usually the full URL to the webpage that is interacting with browserplus. In the case of a native local application interacting with browserplus it should be a URI with a method of 'bpclient' (i.e. bpclient://CLIENTIDENTIFIER'). 'corelet_dir' DEPRECATED, use service_dir instead. 'service_dir' is an absolute path to the directory containing the files distributed with the service. 'data_dir' is a absolute path to where the service should store any data that needs to persist. 'temp_dir' is a directory that may be used for temporary data. it will be unique for every instance, and will be purged when the instance is deallocated. 'locale' The locale of the end user to which strings, if any, should be localized. 'userAgent' The client user-agent string. 'clientPid' The process ID of the client.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+zero on success, non-zero on failure 
+.RE
+.PP
+
+.SS "typedef const \fBBPCoreletDefinition\fP*(* \fBBPPAttachPtr\fP)(unsigned int attachID, const \fBBPElement\fP *parameterMap)"The 'attach' function supports interpreter services. These are services which can be used by other services. The primary types of services that will be interested in this functionality are high level language interpretation services which allow the authoring of services in non-compiled languages.
+.PP
+For most services Attach and Detach may be NULL which indicates that the service may not be 'used' by other services.
+.PP
+Attach is called after BPPInitialize at the time the dependant service is itself initialize. Multiple dependant services may use the same provider service, and the provider service may also expose functions directly. Multiple attached dependant services may be disambiguated using the 'attachID'. At the time an instance of a attached service is instantiated, the attachID is passed in.
+.PP
+The parameters map contains a set of parameters which describe the dependant service. These parameters are both set by BrowserPlus, and extracted from the manifest of the dependant service.
+.PP
+The returned service definition describes the interface of the dependent service. This will likely be dynamically allocated memory, which should not be freed until detach is called
+.PP
+\fBWarning:\fP
+.RS 4
+this is an exception to the ServiceAPI's memory contract, and will be fixed in a later version of the ServiceAPI 
+.RE
+.PP
+
+.SS "typedef void(* \fBBPPDestroyPtr\fP)(void *instance)"Destroy a service instance allocated with BPPAllocate. 
+.SS "typedef void(* \fBBPPDetachPtr\fP)(unsigned int attachID)"At the time the last instance of a dependant service is deleted, detach is called. 
+.SS "typedef struct \fBBPPFunctionTable_t\fP  \fBBPPFunctionTable\fP"
+.SS "typedef const \fBBPCoreletDefinition\fP*(* \fBBPPInitializePtr\fP)(const \fBBPCFunctionTable\fP *coreFunctionTable, const \fBBPElement\fP *parameterMap)"***** BEGIN LICENSE BLOCK ***** The contents of this file are subject to the Mozilla Public License Version 1.1 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.mozilla.org/MPL/
+.PP
+Software distributed under the License is distributed on an 'AS IS' basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License for the specific language governing rights and limitations under the License.
+.PP
+The Original Code is BrowserPlus (tm).
+.PP
+The Initial Developer of the Original Code is Yahoo!. Portions created by Yahoo! are Copyright (C) 2006-2009 Yahoo!. All Rights Reserved.
+.PP
+Contributor(s): ***** END LICENSE BLOCK ***** Written by Lloyd Hilaiel, on or around Fri May 18 17:06:54 MDT 2007
+.PP
+Overview:
+.PP
+Functions that must be implemented by the service are prefaced with BPP and are located in this file. Initialize the service, called once at service load time. the pointer passed in points to a structure of points to BPC functions that the service may call through into BPCore. 
+.SS "typedef void(* \fBBPPInvokePtr\fP)(void *instance, const char *functionName, unsigned int tid, const \fBBPElement\fP *arguments)"All callable functions exposed by the service are invoked by BrowserPlus by calling the invoke function and passing as a parameter the name of the function being invoked.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinstance\fP The same instance pointer that the service returned in the BPPAllocate call. 
+.br
+\fIfunctionName\fP The name of the function being invoked 
+.br
+\fItid\fP The transaction id of this function invocation. Should be passed by the service to BPCPostResultsFuncPtr or BPCPostErrorFuncPtr 
+.br
+\fIarguments\fP The validated arguments to the function. The service is guaranteed that all defined arguments to the function from the function description structure have been checked, and that no unsupported arguments are present, nor are required arguments missing. This is always a BPTMap. 
+.RE
+.PP
+
+.SS "typedef void(* \fBBPPShutdownPtr\fP)(void)"shut down the service. Called once at service unload time, all allocated instances will have been deleted by the time this function is called. 
+.SH "Function Documentation"
+.PP 
+.SS "const \fBBPPFunctionTable\fP* BPPGetEntryPoints (void)"The single entry point into the plugin which attains a BPPFunctionTable containing the version. Having a single symbol which is sought in the plugin interface allows the service author to strip all other symbols. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen from the source code.

@@ -1,0 +1,2 @@
+A BrowserPlus service that creates a xml config file for the Flash Media Encoder and saves it to the users local disk.
+The service sets the name of the stream and the URL to the streamer and then opens FME with a script and starts the stream.

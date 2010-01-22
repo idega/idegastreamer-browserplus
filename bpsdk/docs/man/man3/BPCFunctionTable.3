@@ -1,0 +1,43 @@
+.TH "BPCFunctionTable" 3 "12 Nov 2009" "Doxygen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BPCFunctionTable \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <bpcfunctions.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBBPCPostResultsFuncPtr\fP \fBpostResults\fP"
+.br
+.ti -1c
+.RI "\fBBPCPostErrorFuncPtr\fP \fBpostError\fP"
+.br
+.ti -1c
+.RI "\fBBPCLogFuncPtr\fP \fBlog\fP"
+.br
+.ti -1c
+.RI "\fBBPCInvokeCallBackFuncPtr\fP \fBinvoke\fP"
+.br
+.ti -1c
+.RI "\fBBPCPromptUserFuncPtr\fP \fBprompt\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A table containing function pointers for functions available to be called by services implemented by BrowserPlus. 
+.SH "Field Documentation"
+.PP 
+.SS "\fBBPCInvokeCallBackFuncPtr\fP \fBBPCFunctionTable::invoke\fP"
+.SS "\fBBPCLogFuncPtr\fP \fBBPCFunctionTable::log\fP"
+.SS "\fBBPCPostErrorFuncPtr\fP \fBBPCFunctionTable::postError\fP"
+.SS "\fBBPCPostResultsFuncPtr\fP \fBBPCFunctionTable::postResults\fP"
+.SS "\fBBPCPromptUserFuncPtr\fP \fBBPCFunctionTable::prompt\fP"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen from the source code.

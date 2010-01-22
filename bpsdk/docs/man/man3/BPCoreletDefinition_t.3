@@ -1,0 +1,51 @@
+.TH "BPCoreletDefinition_t" 3 "12 Nov 2009" "Doxygen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BPCoreletDefinition_t \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <bpdefinition.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBBPString\fP \fBcoreletName\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBmajorVersion\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBminorVersion\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBmicroVersion\fP"
+.br
+.ti -1c
+.RI "\fBBPString\fP \fBdocString\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBnumFunctions\fP"
+.br
+.ti -1c
+.RI "\fBBPFunctionDefinition\fP * \fBfunctions\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The definition of a service 
+.SH "Field Documentation"
+.PP 
+.SS "\fBBPString\fP \fBBPCoreletDefinition_t::coreletName\fP"The name of the service 
+.SS "\fBBPString\fP \fBBPCoreletDefinition_t::docString\fP"A human readable english documentation string. 
+.SS "\fBBPFunctionDefinition\fP* \fBBPCoreletDefinition_t::functions\fP"An array of function definitions 
+.SS "unsigned int \fBBPCoreletDefinition_t::majorVersion\fP"The major version of the service 
+.SS "unsigned int \fBBPCoreletDefinition_t::microVersion\fP"The micro version (build number) of the service 
+.SS "unsigned int \fBBPCoreletDefinition_t::minorVersion\fP"The minor version of the service 
+.SS "unsigned int \fBBPCoreletDefinition_t::numFunctions\fP"The number of functions in the functions array 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen from the source code.

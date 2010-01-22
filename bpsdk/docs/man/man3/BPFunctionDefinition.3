@@ -1,0 +1,39 @@
+.TH "BPFunctionDefinition" 3 "12 Nov 2009" "Doxygen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BPFunctionDefinition \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <bpdefinition.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBBPString\fP \fBfunctionName\fP"
+.br
+.ti -1c
+.RI "\fBBPString\fP \fBdocString\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBnumArguments\fP"
+.br
+.ti -1c
+.RI "\fBBPArgumentDefinition\fP * \fBarguments\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The definition of a function 
+.SH "Field Documentation"
+.PP 
+.SS "\fBBPArgumentDefinition\fP* \fBBPFunctionDefinition::arguments\fP"An array of argument definitions 
+.SS "\fBBPString\fP \fBBPFunctionDefinition::docString\fP"A human readable english documentation string. 
+.SS "\fBBPString\fP \fBBPFunctionDefinition::functionName\fP"the name of the function 
+.SS "unsigned int \fBBPFunctionDefinition::numArguments\fP"The number of arguements in the arguments array 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen from the source code.

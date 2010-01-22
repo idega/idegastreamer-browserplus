@@ -1,0 +1,17 @@
+{  
+  "type": "dependent",  
+  "uses": {  
+    "corelet": "RubyInterpreter",  
+    "version": "4",  
+    "minversion": "4.2.3"  
+  },  
+  "arguments": {  
+    "ScriptFile": "idegastreaming.rb"  
+  },  
+  "strings": {  
+    "en": {  
+      "title": "IdegaStreaming",   
+      "summary": "Starts the video stream broadcaster from javascript"  
+    }  
+  }  
+}  

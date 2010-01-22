@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+	<title>Idega Streaming</title>
+
+	<style type="text/css">
+		body { background-color: #fff; padding: 0 20px; color:#000; font: 13px/18px Arial, sans-serif; }
+		a { color: #360; }
+		h3 { padding-top: 20px; }
+		ol { margin:5px 0 15px 16px; padding:0; list-style-type:square; }
+	</style>
+<script type="text/javascript" src="http://www.longtailvideo.com/jw/embed/swfobject.js">/*asdfas*/</script>
+<script src="http://bp.yahooapis.com/2.4.21/browserplus-min.js">/*comment*/</script>  
+<script src="http://bp.yahooapis.com/toolbox/installer/1.0.11/install-min.js">/*comment*/</script>  
+
+</head>
+<body>
+
+	<h3>Idega Streaming Test</h3>
+    <p id="install_area" style="background:#cce;padding:4px;display:none;text-align:center;">
+        Enhance your experience with BrowserPlus.<br>
+        &gt;&gt;&gt; <a id="install_link" href="#"> Install BrowserPlus </a>. &lt;&lt;&lt;
+    </p>
+    
+<div id='mediaspace'>This text will be replaced</div>
+ 
+<script type='text/javascript'>
+ // initArgs: passed into BrowserPlus.init, probably empty object {}   
+// initFunc: function(res){} normal BrowserPlus init callback  
+  
+//BPTool.Installer.show(initArgs, initFunc);  
+  
+// OPTIONALLY, you can specify a third 'config' parameter, which   
+// tells the installer whether or not to use a Java Applet that   
+// can make installation a smoother experience.  
+//  
+// If not specified, the defaults are: {macJava: true, winJava: false}  
+
+BrowserPlus.init(  
+  function(installed)   
+  {  
+    if (installed.success)   
+    {  
+      function requireComplete() {  
+        BrowserPlus.IdegaStreaming.StartStream(  
+          { streamname:'livestream?id=100', streamer:'rtmp://streaming.idega.com/oflaDemo' },  
+          function(rez) { alert(rez.value); });  
+      }  
+      
+      BrowserPlus.require({services: [{"service": "IdegaStreaming"}]}, requireComplete);  
+    }  
+  });  
+  
+  
+        function sayit(text) {
+            BrowserPlus.TextToSpeech.Say({utterance: text}, function(){});
+        }
+
+        BPTool.Installer.show({}, function(res){
+            if (res.success) {
+                var tts = { service: "TextToSpeech", version: "1", minversion: "1.0.2"};
+                BrowserPlus.require({services: [tts]}, function(res) {
+                    if (res.success) {
+                        sayit("Starting video encoder.");
+                    }
+                });
+            }
+        });
+        
+        
+		BrowserPlus.init({}, function (r) {
+          if (!r.success && r.error === 'bp.notInstalled') {
+            var ia = document.getElementById("install_area");
+            ia.style.display = 'inline';    
+            var lnk = document.getElementById("install_link");
+            lnk.onclick = function () {
+              BPTool.Installer.show({}, initCB);
+              ia.style.display = 'none';    
+              return false;  
+            }
+          } else {
+            initCB(r);
+          }
+        });
+
+ var so = new SWFObject('player4.6.swf','ply','640','480','9','#ffffff');
+  so.addParam('allowfullscreen','true');
+  so.addParam('allowscriptaccess','always');
+  so.addParam('wmode','opaque');
+  so.addVariable('file','livestream');
+  so.addVariable('type','rtmp');
+  so.addVariable('bufferlength','2');
+  so.addVariable('streamer','rtmp://streaming.idega.com/oflaDemo');
+  so.addVariable('autostart','true');
+  so.write('mediaspace');
+
+</script>
+	
+</body>
+</html>
