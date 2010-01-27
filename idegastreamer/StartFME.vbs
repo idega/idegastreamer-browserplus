@@ -3,6 +3,7 @@ WshShell.Run """C:\Program Files\Adobe\Flash Media Live Encoder 3\FlashMediaLive
 WScript.Sleep 10000 'milliseconds to wait 
 WshShell.AppActivate "Adobe Flash Media Encoder"
 WshShell.SendKeys "%fo" 'Open a custom config 
-WshShell.SendKeys "streaming.xml"
+WshShell.SendKeys "streaming-changed.xml"
+WScript.Sleep 2000 'milliseconds to wait 
 WshShell.SendKeys "{ENTER}" 'Start encoding 
 WshShell.SendKeys "{ENTER}" 'Confirm 

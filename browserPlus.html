@@ -11,8 +11,8 @@
 		ol { margin:5px 0 15px 16px; padding:0; list-style-type:square; }
 	</style>
 <script type="text/javascript" src="http://www.longtailvideo.com/jw/embed/swfobject.js">/*asdfas*/</script>
-<script src="http://bp.yahooapis.com/2.4.21/browserplus-min.js">/*comment*/</script>  
-<script src="http://bp.yahooapis.com/toolbox/installer/1.0.11/install-min.js">/*comment*/</script>  
+<script src="http://bp.yahooapis.com/2.4.21/browserplus-min.js">/*comment*/</script>
+<script src="http://bp.yahooapis.com/toolbox/installer/1.0.11/install-min.js">/*comment*/</script>
 
 </head>
 <body>
@@ -22,37 +22,40 @@
         Enhance your experience with BrowserPlus.<br>
         &gt;&gt;&gt; <a id="install_link" href="#"> Install BrowserPlus </a>. &lt;&lt;&lt;
     </p>
-    
-<div id='mediaspace'>This text will be replaced</div>
- 
-<script type='text/javascript'>
- // initArgs: passed into BrowserPlus.init, probably empty object {}   
-// initFunc: function(res){} normal BrowserPlus init callback  
-  
-//BPTool.Installer.show(initArgs, initFunc);  
-  
-// OPTIONALLY, you can specify a third 'config' parameter, which   
-// tells the installer whether or not to use a Java Applet that   
-// can make installation a smoother experience.  
-//  
-// If not specified, the defaults are: {macJava: true, winJava: false}  
 
-BrowserPlus.init(  
-  function(installed)   
-  {  
-    if (installed.success)   
-    {  
-      function requireComplete() {  
-        BrowserPlus.IdegaStreaming.StartStream(  
-          { streamname:'livestream?id=100', streamer:'rtmp://streaming.idega.com/oflaDemo' },  
-          function(rez) { alert(rez.value); });  
-      }  
-      
-      BrowserPlus.require({services: [{"service": "IdegaStreaming"}]}, requireComplete);  
-    }  
-  });  
-  
-  
+<div id='mediaspace'>This text will be replaced</div>
+
+<script type='text/javascript'>
+
+	var nameOfStream = 'livestream12345';
+
+ // initArgs: passed into BrowserPlus.init, probably empty object {}
+// initFunc: function(res){} normal BrowserPlus init callback
+
+//BPTool.Installer.show(initArgs, initFunc);
+
+// OPTIONALLY, you can specify a third 'config' parameter, which
+// tells the installer whether or not to use a Java Applet that
+// can make installation a smoother experience.
+//
+// If not specified, the defaults are: {macJava: true, winJava: false}
+
+BrowserPlus.init(
+  function(installed)
+  {
+    if (installed.success)
+    {
+      function requireComplete() {
+        BrowserPlus.IdegaStreaming.StartStream(
+          { streamname:nameOfStream, streamer:'rtmp://streaming.idega.com/oflaDemo' },
+          function(rez) { alert(rez.value); });
+      }
+
+      BrowserPlus.require({services: [{"service": "IdegaStreaming"}]}, requireComplete);
+    }
+  });
+
+
         function sayit(text) {
             BrowserPlus.TextToSpeech.Say({utterance: text}, function(){});
         }
@@ -67,20 +70,18 @@ BrowserPlus.init(
                 });
             }
         });
-        
-        
+
+
 		BrowserPlus.init({}, function (r) {
           if (!r.success && r.error === 'bp.notInstalled') {
             var ia = document.getElementById("install_area");
-            ia.style.display = 'inline';    
+            ia.style.display = 'inline';
             var lnk = document.getElementById("install_link");
             lnk.onclick = function () {
               BPTool.Installer.show({}, initCB);
-              ia.style.display = 'none';    
-              return false;  
+              ia.style.display = 'none';
+              return false;
             }
-          } else {
-            initCB(r);
           }
         });
 
@@ -88,7 +89,7 @@ BrowserPlus.init(
   so.addParam('allowfullscreen','true');
   so.addParam('allowscriptaccess','always');
   so.addParam('wmode','opaque');
-  so.addVariable('file','livestream');
+  so.addVariable('file',nameOfStream);
   so.addVariable('type','rtmp');
   so.addVariable('bufferlength','2');
   so.addVariable('streamer','rtmp://streaming.idega.com/oflaDemo');
@@ -96,6 +97,6 @@ BrowserPlus.init(
   so.write('mediaspace');
 
 </script>
-	
+
 </body>
 </html>

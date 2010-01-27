@@ -1,5 +1,8 @@
 require 'rexml/document'
 include REXML
+#require "open3"
+#include Open3
+
 #to import see below
 #bp_require "a_local_ruby_file.rb"  
 
@@ -9,7 +12,7 @@ rubyCoreletDefinition = {
   'name' => "IdegaStreaming",    
   'major_version' => 0,    
   'minor_version' => 0,    
-  'micro_version' => 2,    
+  'micro_version' => 11,    
   'documentation' => 'Idega Live Streaming',    
   'functions' =>    
   [    
@@ -47,6 +50,8 @@ class IdegaStreamingInstance
 	#locale The locale of the end user to which strings, if any, should be localized.
 	#userAgent The client user-agent string.
 	#clientPid The process ID of the client.
+	#serviceDir = context['service_dir']
+	
   end    
     
   def StartStream(transaction, args)    
@@ -61,14 +66,19 @@ class IdegaStreamingInstance
 	#bp_log("info", "Current value #{root.elements[1].elements['output'].elements['stream']}")
 	root.each_element("//stream"){|stream| stream.text=streamname}
 	root.each_element("//url"){|url| url.text=streamer}
-
 	
-	savefile = File.new('/Users/eiki/Desktop/jwplayer/streaming-changed.xml', 'w')
+	savefile = File.new('C:\Documents and Settings\Sigtryggur\Application Data\Adobe\Flash Media Live Encoder 3\streaming-changed.xml', 'w')
 	savefile << doc 
 	savefile.close
 
-#run a script
-#bb = IO.popen("Open /Applications/Firefox.app")
+#Open3.popen3('cscript //nologo StartFME.vbs'){ |stdin, stdout, stderr| puts stdout }
+#Start our FME script
+
+IO.popen("cscript StartFME.vbs")
+
+#IO.popen("cscript //nologo StartFME.vbs")
+#system("cscript StartFME.vbs")
+#run a script bb = IO.popen("C:\Documents and Settings\Sigtryggur\Desktop\streaming\idegastreamer-browserplus\idegastreamer\StartFME.vbs")
 #b = bb.readlines
 #puts b.join
 
