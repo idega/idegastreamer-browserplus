@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+	<title>Idega Streaming</title>
+
+	<style type="text/css">
+		body { background-color: #000; padding: 0; color:#000; font: 13px/18px Arial, sans-serif; }
+	</style>
+	
+<script type="text/javascript" src="http://www.longtailvideo.com/jw/embed/swfobject.js">/*asdfas*/</script>
+
+<script type='text/javascript'>
+
+function getParameter( name ){
+  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp( regexS );
+  var results = regex.exec( window.location.href );
+  if( results == null )
+    return "";
+  else
+    return results[1];
+}
+
+</script>
+
+</head>
+<body>
+   
+
+<div id='mediaspace'>This text will be replaced</div>
+
+<script type='text/javascript'>
+
+	var nameOfStream = getParameter('streamid');
+	
+	var so = new SWFObject('player4.6.swf','ply','640','480','9','#ffffff');
+	so.addParam('allowfullscreen','true');
+	so.addParam('allowscriptaccess','always');
+	so.addParam('wmode','opaque');
+	so.addVariable('file',nameOfStream);
+	so.addVariable('type','rtmp');
+	so.addVariable('bufferlength','2');
+	so.addVariable('streamer','rtmp://streaming.idega.com/oflaDemo');
+	so.addVariable('autostart','true');
+	so.write('mediaspace');
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+	<title>Idega Streaming</title>
+
+	<style type="text/css">
+		body { background-color: #000; padding: 0 20px;  color:#fff;font: 14px Arial, sans-serif; }
+		h3 { color:#fff; font: 18px Arial, sans-serif; }
+		a { color: #fff; }
+		h3 { padding-top: 20px; }
+		ol { margin:5px 0 15px 16px; padding:0; list-style-type:square; }
+	</style>
+<script type="text/javascript" src="http://www.longtailvideo.com/jw/embed/swfobject.js">/*asdfas*/</script>
+<script src="http://bp.yahooapis.com/2.4.21/browserplus-min.js">/*comment*/</script>
+<script src="http://bp.yahooapis.com/toolbox/installer/1.0.11/install-min.js">/*comment*/</script>
+
+
+</head>
+<body>
+
+	<h3>Idega Streaming Broadcaster</h3>
+    <p id="install_area" style="background:#cce;padding:4px;display:none;text-align:center;">
+        Enhance your experience with BrowserPlus.<br>
+        &gt;&gt;&gt; <a id="install_link" href="#"> Install BrowserPlus </a>. &lt;&lt;&lt;
+    </p>
+
+<div>
+	<p>Enter your stream name below. Your video encoder will autostart and the viewer page will open. </p>
+	<form action="view.html" target="_new">
+		<input onfocus="this.value='';" type="text" name="streamid" id="streamid" value="Enter stream name"/>
+		<a href="javascript: startStreaming();" style="display:inline;color:#333;width:100px;height:75px;border:1px #a8a8a8 solid;background-color:#eee;padding:3px 5px;font-size:12px;text-decoration:none;">Go Live!</a>
+</form>
+</div>
+
+    <div id="generatedLink" style="background:#fff;display:none;">
+	    <p>Copy this link to the live stream to add you own page or to display the video inline.</p>
+	    <input type="text" name="linkurl" id="linkurl" value="" style="width: 400px;display:block" />
+    </div>
+
+<script type="text/javascript">
+
+	var browserPlusReady = false;
+	var nameOfStream = '';
+	var baseUrl = 'http://streaming.idega.com/view.html?streamid='
+
+// initArgs: passed into BrowserPlus.init, probably empty object {}
+// initFunc: function(res){} normal BrowserPlus init callback
+//BPTool.Installer.show(initArgs, initFunc);
+// OPTIONALLY, you can specify a third 'config' parameter, which
+// tells the installer whether or not to use a Java Applet that
+// can make installation a smoother experience.
+// If not specified, the defaults are: {macJava: true, winJava: false}
+
+BrowserPlus.init(
+  function(installed)
+  {
+    if (installed.success)
+    {
+      function requireComplete() {
+      	browserPlusReady = true;
+      }
+
+      BrowserPlus.require({services: [{"service": "IdegaStreaming"}]}, requireComplete);
+    }
+  });
+
+		BrowserPlus.init({}, function (r) {
+          if (!r.success && r.error === 'bp.notInstalled') {
+            var ia = document.getElementById("install_area");
+            ia.style.display = 'inline';
+            var lnk = document.getElementById("install_link");
+            lnk.onclick = function () {
+              BPTool.Installer.show({}, initCB);
+              ia.style.display = 'none';
+              return false;
+            }
+          }
+        });
+
+
+function startStreaming(){
+	nameOfStream = document.getElementById('streamid').value;
+	document.getElementById('linkurl').value=baseUrl+nameOfStream;
+	
+	BrowserPlus.IdegaStreaming.StartStream({ streamname:nameOfStream, streamer:'rtmp://streaming.idega.com/oflaDemo' },function(rez) { document.getElementById('generatedLink').style.display='inline';document.forms[0].submit(); });	
+	
+}
+</script>
+</body>
+</html>
