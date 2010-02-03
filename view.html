@@ -5,7 +5,7 @@
 	<title>Idega Streaming</title>
 
 	<style type="text/css">
-		body { background-color: #000; padding: 0; color:#000; font: 13px/18px Arial, sans-serif; }
+		body { background-color: #000; padding: 0; margin:0; color:#000; font: 13px/18px Arial, sans-serif; }
 	</style>
 	
 <script type="text/javascript" src="http://www.longtailvideo.com/jw/embed/swfobject.js">/*asdfas*/</script>
@@ -30,12 +30,11 @@ function getParameter( name ){
    
 
 <div id='mediaspace'>This text will be replaced</div>
-
 <script type='text/javascript'>
 
 	var nameOfStream = getParameter('streamid');
 	
-	var so = new SWFObject('player4.6.swf','ply','640','480','9','#ffffff');
+	var so = new SWFObject('player4.7.swf','ply','640','480','9','#000');
 	so.addParam('allowfullscreen','true');
 	so.addParam('allowscriptaccess','always');
 	so.addParam('wmode','opaque');
